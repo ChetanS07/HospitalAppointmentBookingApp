@@ -1,0 +1,10 @@
+.carousel {
+    height: 100%;
+}
+
+.carousel-slide-div {
+    background-color: rgb(0, 0, 0, 0.5);
+    color: aqua;
+    height: 100%;
+    width: 100%;
+}

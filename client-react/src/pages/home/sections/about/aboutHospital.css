@@ -1,0 +1,40 @@
+.about-hospital {
+    /* flex: 40%; */
+    border: 1px solid;
+    /* font-size: 1.2rem; */
+    gap: 2rem;
+
+    box-sizing: border-box;
+}
+
+.hospital-img {
+    height: 22rem;
+    border-radius: 1rem;
+}
+
+.hospital-info {
+    padding: 1rem;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: unset;
+    align-items: unset;
+}
+
+.hospital-info h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.hospital-info p {
+    font-size: 1.1rem;
+    /* line-height: 1.5rem; */
+}
+
+.hospital-info-btn {
+    width: 50%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 2px solid;
+    background-color: transparent;
+    border-radius: 1rem;
+}

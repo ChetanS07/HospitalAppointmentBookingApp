@@ -1,0 +1,10 @@
+#hero-section {
+    display: flex;
+    background-image: url('../../../..//assets//braveDoctor.jpg');
+    background-size: cover;
+    height: 40rem;
+
+    align-items: center;
+    justify-content: center;
+
+}

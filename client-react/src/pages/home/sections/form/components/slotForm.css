@@ -1,0 +1,9 @@
+.get-slot-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 2rem;
+    /* width: 50%; */
+
+    border: 2px solid;
+}

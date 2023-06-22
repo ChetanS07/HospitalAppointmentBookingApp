@@ -1,0 +1,21 @@
+.flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#banner-section {
+    /* height: 15rem; */
+    border: 1px solid;
+    padding: 2rem 5rem;
+    box-sizing: border-box;
+}
+
+.banner-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    /* border: 1px solid; */
+    box-sizing: border-box;
+}

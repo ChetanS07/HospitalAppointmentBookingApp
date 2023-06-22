@@ -1,0 +1,11 @@
+#status-card {
+    border-radius: 1rem;
+    /* padding: 1rem 2rem; */
+    flex-direction: column;
+    gap: 0rem;
+    border: 2px solid;
+}
+
+#status-card>* {
+    margin: 0;
+}

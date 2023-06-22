@@ -1,0 +1,12 @@
+#login-section {
+    padding: 2rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

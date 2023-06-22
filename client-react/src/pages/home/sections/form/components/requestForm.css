@@ -1,0 +1,9 @@
+.request-appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    /* width: 50%; */
+
+    border: 2px solid;
+}

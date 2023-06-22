@@ -1,0 +1,37 @@
+.about-doctors {
+    /* flex: 50%; */
+    box-sizing: border-box;
+    padding: 0 2rem;
+    border: 1px solid;
+}
+
+.doctor-card {
+    padding: 0rem 5rem;
+    gap: 3rem;
+}
+
+.doctor-intro {
+    flex: 25%;
+    height: 25rem;
+
+    /* background-image: url('../../../../assets/doctor1.jpg'); */
+    /* background-size: cover; */
+    border: 1px solid;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+.doctor-name {
+    background-color: rgb(240, 248, 255, 0.5);
+    position: relative;
+    bottom: -1rem;
+}
+
+.doctor-description {
+    flex: 75%;
+}
+
+.doctor-img {
+    height: 20rem;
+    width: 15rem;
+}

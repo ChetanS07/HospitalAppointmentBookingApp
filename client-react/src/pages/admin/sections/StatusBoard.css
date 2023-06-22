@@ -1,0 +1,43 @@
+#status-board {
+    height: 8rem;
+    /* padding: 1rem 1rem; */
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.search-bar {
+    /* border: 2px solid; */
+    border-radius: .5rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.search-input {
+    padding: .6rem 1rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+    border: 2px solid;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-btn {
+    padding: .6rem 2rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: none;
+    color: aliceblue;
+    background-color: rgb(37, 44, 44);
+}
+
+.search-btn:hover {
+    background-color: rgb(59, 66, 66);
+}
+
+.search-btn:active {
+    background-color: rgb(12, 19, 19);
+}

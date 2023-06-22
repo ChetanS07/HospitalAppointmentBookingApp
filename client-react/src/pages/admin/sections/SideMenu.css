@@ -1,0 +1,50 @@
+#side-menu {
+    flex: 18%;
+    height: 44rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+    gap: 1rem;
+
+    background-color: ivory;
+    /* border: 1px solid; */
+}
+
+#side-menu>* {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.application-selector {
+    padding: 2rem 0rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* border: 1px solid; */
+    gap: 1rem;
+
+    flex: 60%;
+    box-sizing: border-box;
+}
+
+.application-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+
+    border: none;
+    background-color: aliceblue;
+}
+
+.application-btn:hover {
+    background-color: rgb(63, 66, 68);
+    color: azure;
+
+    /* background-color: rgb(34, 45, 54); */
+}
+
+.btn-active {
+    color: azure;
+    background-color: rgb(34, 45, 54);
+}

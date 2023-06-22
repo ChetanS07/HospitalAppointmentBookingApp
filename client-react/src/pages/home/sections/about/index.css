@@ -1,0 +1,10 @@
+#about-section {
+    /* height: 70rem; */
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 5rem;
+    box-sizing: border-box;
+    gap: 1rem;
+
+    border: 1px solid;
+}
