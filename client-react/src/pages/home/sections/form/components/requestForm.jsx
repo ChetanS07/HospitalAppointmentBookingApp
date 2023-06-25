@@ -161,12 +161,12 @@ function App(props) {
                         disabled={slotsAvailable ? '' : 'disabled'}
                         id='slots'
                         name='slot'
-                        // value={slotState.value}
+                        value={slotState.value}
                         defaultValue={'default'}
                         onChange={slotChangeHanlder}
                         onBlur={validateSlotHandler}
                     >
-                        <option value={'default'} disabled hidden>Select Slot</option>
+                        <option value={slotState.value} disabled hidden>Select Slot</option>
                         <>{renderSlots()}</>
                     </select>
                 </div>
