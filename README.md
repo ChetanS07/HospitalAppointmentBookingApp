@@ -48,7 +48,7 @@ https://chetansprojectshospitalappbooking.netlify.app/
 
 And Login Details are :
 
-username : 'admin user'
+username : 'admin user',
 password : 'admin'
 
 **Please Don't Misuse**
