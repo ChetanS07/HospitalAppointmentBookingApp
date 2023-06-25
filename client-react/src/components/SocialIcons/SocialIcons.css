@@ -1,0 +1,30 @@
+#contact-icons {
+    /* gap: 1rem; */
+
+    /* border: 1px solid; */
+    /* width: fit-content; */
+}
+
+.contact-icon {
+    margin-right: 1rem;
+    color: black;
+}
+
+.contact-icon:last-child {
+    margin-right: 0;
+}
+
+
+@media screen and (max-width:600px) {
+    #contact-icons {
+        width: 100%;
+    }
+
+    .contact-icon {
+        margin-right: .7rem;
+    }
+
+    .contact-icon i {
+        scale: .9;
+    }
+}

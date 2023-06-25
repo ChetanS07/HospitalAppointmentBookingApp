@@ -1,10 +1,117 @@
+:root {
+    --primary-font: 'Belanosima';
+    --Secondary-font: 'Rubik Mono One';
+    --tertiary-font: 'Noto Sans';
+    --article-font: 'Roboto Condensed';
+    --basic-font: 'Kanit';
+    --primary-color: '';
+
+    --nav-foo-color: rgb(0, 0, 0);
+
+
+}
+
+.clss {
+    font-family: 'Belanosima', sans-serif;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+
 body {
     padding: 0;
     margin: 0;
+    /* overflow-y: auto; */
 }
+
+
 
 .flexbox {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.doctor-option-label {
+    font-size: 1.1rem;
+}
+
+.day-option-label {
+    font-size: 1.1rem;
+}
+
+.date-input-label {
+    font-size: 1.1rem;
+}
+
+.zero-margin {
+    margin: 0;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-left {
+    text-align: left;
+}
+
+#doctor-option {
+    background-color: aliceblue;
+    padding: .3rem .8rem;
+    font-size: .9rem;
+    border: .5px solid grey;
+    border-radius: .2rem;
+    box-sizing: border-box;
+}
+
+#day-option {
+    background-color: aliceblue;
+    padding: .3rem .8rem;
+    font-size: .9rem;
+    border: .5px solid grey;
+    border-radius: .2rem;
+    box-sizing: border-box;
+}
+
+#date-input {
+    background-color: aliceblue;
+    padding: .3rem .8rem;
+    font-size: .9rem;
+    border: .5px solid grey;
+    border-radius: .2rem;
+    box-sizing: border-box;
+}
+
+@media screen and(max-width:600px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .container {
+        flex-direction: column !important;
+    }
+
+    .doctor-option-label {
+        font-size: .1rem;
+    }
+
+    .day-option-label {
+        font-size: 1rem;
+    }
+
+    .date-input-label {
+        font-size: 1rem;
+    }
+
+    #doctor-option {
+        /* font-size: 0.5rem; */
+    }
+
+    #day-option {
+        font-size: 5rem !important;
+    }
 }

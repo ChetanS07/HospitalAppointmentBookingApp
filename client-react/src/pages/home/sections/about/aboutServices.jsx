@@ -7,18 +7,18 @@ import './aboutServices.css'
 import ServiceCard from './components/serviceCard'
 
 const services = [
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+    'Urgent Care, Unwavering Support: Our Hospital\'s Emergency Services',
+    'Rapid Response, Lifesaving Care: Our Ambulance Service at Your Service',
+    'Your health, our priority, Now available through our online consultation service.',
+    'Compassionate Care, Expert Hands: Our Dedicated Doctors and Nurses',
+    'Excellence in Infrastructure, Compassion in Care: Welcome to Our Hospital Facility',
 ]
 const classNames = [
-    "fa-regular fa-hospital fa-2xl",
-    "fa-regular fa-hospital fa-2xl",
-    "fa-regular fa-hospital fa-2xl",
-    "fa-regular fa-hospital fa-2xl",
-    "fa-regular fa-hospital fa-2xl"
+    "fa-solid fa-kit-medical fa-2xl",
+    "fa-solid fa-truck-medical fa-2xl",
+    "fa-solid fa-mobile-screen fa-2xl",
+    "fa-solid fa-user-doctor fa-2xl",
+    "fa-solid fa-bed fa-2xl"
 ]
 
 function App() {

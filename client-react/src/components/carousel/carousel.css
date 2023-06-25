@@ -3,8 +3,148 @@
 }
 
 .carousel-slide-div {
-    background-color: rgb(0, 0, 0, 0.5);
-    color: aqua;
+    background-color: rgb(0, 0, 0, 0.6);
+    color: rgb(212, 219, 226);
     height: 100%;
     width: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-size: 2.5rem !important;
+    font-family: var(--Secondary-font);
+    line-height: 4rem;
+}
+
+.car-div1 {
+    padding: 0 15rem;
+    gap: 10rem;
+    /* justify-content: space-between !important; */
+    /* align-items: unset !important; */
+}
+
+.car-div1 p {
+    text-align: center;
+    /* font-size: 3rem; */
+    /* font-weight: 900; */
+    margin: 0;
+    padding: 0;
+}
+
+.car-div1 button {
+    font-size: 1.5rem;
+    font-family: var(--primary-font);
+    padding: 1rem 5rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+.car-div2 {
+    padding: 0 10rem;
+    gap: 5rem;
+    /* justify-content: space-between !important; */
+    align-items: unset !important;
+    /* flex-direction: row !important; */
+}
+
+.car-div2 p {
+    padding: 0rem 15rem 0 0;
+}
+
+.car-div2 button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    width: 30%;
+    float: right;
+    /* align-self: flex-end; */
+    /* margin-left: 50rem; */
+    font-family: var(--primary-font);
+}
+
+.car-div3 {
+    font-size: 3rem;
+    font-weight: 900;
+    padding: 0 15rem;
+}
+
+.car-div3 p {
+    line-height: 5rem;
+    text-align: center;
+}
+
+
+@media screen and (max-width:600px) {
+    .carousel {
+        height: 18rem;
+        /* scale: .5; */
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        scale: .6;
+    }
+
+    .carousel-slide-div {
+        /* scale: .5; */
+        background-color: rgb(0, 0, 0, 0.6);
+        color: rgb(212, 219, 226);
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        box-sizing: border-box;
+        font-size: 1.4rem !important;
+        font-family: var(--Secondary-font);
+        line-height: 1.5rem !important;
+        padding: 0 2.5rem;
+    }
+
+    .car-div1 {
+        gap: 3rem;
+    }
+
+    .car-div1 button {
+        font-size: 1rem;
+        font-family: var(--primary-font);
+        padding: .5rem 1rem;
+        border-radius: 1rem;
+        border: none;
+    }
+
+    .car-div2 {
+        gap: 3rem;
+        /* align-items: center !important; */
+        padding: 0 4rem;
+    }
+
+    .car-div2 p {
+        padding: 0rem;
+        /* text-align: center; */
+    }
+
+    .car-div2>p>span {
+        display: none;
+    }
+
+    .car-div2 button {
+        font-size: 1rem;
+        padding: .5rem .5rem;
+        border-radius: 1rem;
+        border: none;
+        width: 80%;
+        float: right;
+        /* align-self: flex-end; */
+        /* margin-left: 50rem; */
+        font-family: var(--primary-font);
+    }
+
+    .car-div3 {
+        font-size: 3rem;
+        font-weight: 900;
+        padding: 0 15rem;
+    }
+
+    .car-div3 p {
+        line-height: 5rem;
+        text-align: center;
+    }
 }

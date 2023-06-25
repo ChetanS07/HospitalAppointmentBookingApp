@@ -1,18 +1,22 @@
 import React, { useReducer, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import { message } from "antd";
 
 //css
 import './slotForm.css'
+import '../../../../../main.css'
 
 //modules
 import { validateDate, validateString } from '../../../../../utils/validaters';
 import { renderDoctors } from '../../../../../utils/renderingFunctions';
+import axios from '../../../../../utils/axios';
 
 //components
 import { SlotContext } from '../../../../../store/slotContext';
 
 function App(props) {
 
+    const [messageApi, contextHolder] = message.useMessage();
     const { date, doctor, slots, setDate, setDoctor, setSlots, setSlotsAvailable } = useContext(SlotContext)
     const [dateValid, setDateValid] = useState(true)
     const [doctorValid, setDoctorValid] = useState(false)
@@ -39,17 +43,21 @@ function App(props) {
         setFormValid(validateDate(date) && validateString(doctor))
     }
 
+    const showModal = (type, msg) => {
+        messageApi.open({
+            type: type,
+            content: msg
+        });
+    }
+
     const getSlots = async (event) => {
         event.preventDefault();
 
         if (formValid) {
             try {
                 const request = await axios({
-                    headers: {
-                        'content-type': 'application/json'
-                    },
                     method: 'post',
-                    url: `http://localhost:8000/db/getSlots`,
+                    url: 'db/getSlots',
                     data: {
                         date: date,
                         doctor: doctor
@@ -61,17 +69,18 @@ function App(props) {
                     setSlotsAvailable(true)
                 }
             } catch (error) {
-                alert('Error while sending Api request')
+                showModal('error', 'Failed to get Slots. Server Error, Try Again Later')
             }
         } else {
-            alert('fill all fields')
+            showModal('warning', 'Fill all the credentials')
         }
     }
 
     return (
-        <form className='get-slot-form'>
-            <div>
-                <label style={{ display: 'block' }} htmlFor='date'>Date : </label>
+        <form className='get-slot-form flexbox' >
+            {contextHolder}
+            <div className='date-wrapper'>
+                <label className='date-label' htmlFor='date'>Select Date : </label>
                 <input
                     id='date'
                     name='date'
@@ -83,10 +92,10 @@ function App(props) {
                     onBlur={validateDateHandler}
                 />
             </div>
-            <div>
-                <label style={{ display: 'block' }} htmlFor='doctors' >Doctor : </label>
+            <div className='doctor-wrapper'>
+                <label className='doctor-label' htmlFor='doctor' >Choose Doctor : </label>
                 <select
-                    id='doctors'
+                    id='doctor'
                     name='doctor'
                     defaultValue='default'
                     onChange={doctorChangeHandler}
@@ -97,11 +106,12 @@ function App(props) {
                 </select>
             </div>
             <button
+                className='get-slots-btn'
                 onClick={getSlots}
             >
                 Get Available Slots
             </button>
-        </form>
+        </form >
     );
 }
 

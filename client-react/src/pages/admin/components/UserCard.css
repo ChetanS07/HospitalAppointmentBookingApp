@@ -8,6 +8,9 @@
     background-color: aliceblue;
 
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px 0px;
+    box-sizing: border-box;
+
+    font-family: 'Kanit', sans-serif;
 }
 
 .user-profile-photo {
@@ -33,6 +36,7 @@
     color: aliceblue;
     font-size: 1rem;
     border-radius: 1rem;
+    font-family: 'Kanit', sans-serif;
 }
 
 .user-logout-btn:hover {
@@ -41,4 +45,16 @@
 
 .user-logout-btn:active {
     background-color: rgb(31, 30, 30);
+}
+
+
+@media screen and (max-width:600px) {
+
+    #user-card {
+        gap: 0rem;
+    }
+
+    .user-logout {
+        margin-top: 3rem;
+    }
 }

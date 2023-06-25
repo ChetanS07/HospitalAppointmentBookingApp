@@ -15,3 +15,5 @@ export const today = day.toISOString().split('T')[0]
 
 day.setDate(day.getDate() + 1);
 export const tomorrow = day.toISOString().split('T')[0]
+
+export const indianDate = day.toLocaleString("en-US", "Asia/Delhi").split('T')[0];

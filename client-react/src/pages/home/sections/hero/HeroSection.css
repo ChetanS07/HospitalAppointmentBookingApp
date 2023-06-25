@@ -1,10 +1,20 @@
 #hero-section {
     display: flex;
-    background-image: url('../../../..//assets//braveDoctor.jpg');
-    background-size: cover;
+    background-image: url('../../../../assets/hospital.jpg');
+    background-size: contain;
     height: 40rem;
-
+    opacity: .9;
+    background-blend-mode: darken;
     align-items: center;
     justify-content: center;
 
+}
+
+@media screen and (max-width:600px) {
+    #hero-section {
+        background-image: url('../../../../assets/hospital-resized.jpg');
+        background-size: cover;
+        height: 18rem;
+        background-position: -20px;
+    }
 }

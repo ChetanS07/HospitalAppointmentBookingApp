@@ -1,0 +1,64 @@
+#address-section {
+    flex: 45%;
+    padding: 2rem 2rem;
+    /* border: 1px solid; */
+    box-sizing: border-box;
+
+}
+
+.address-wrapper {
+    justify-content: unset;
+    align-items: unset;
+    flex-direction: column;
+    gap: 3rem;
+    width: fit-content;
+    padding: 2rem 3rem;
+    /* border-radius: 1rem; */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+    /* background-color: #1F6E8C; */
+}
+
+.address-wrapper i {
+    margin-right: 1rem;
+}
+
+.details-article-wrapper {
+    text-align: center;
+    gap: 1rem;
+    font-family: var(--article-font);
+    font-size: 1.2rem;
+    /* font-weight: 800; */
+    /* flex-direction: column; */
+
+    /* border: 1px solid; */
+}
+
+.details-article-wrapper article {
+    width: fit-content;
+    margin: auto;
+    /* border: 1px solid; */
+}
+
+.address-article {
+    flex-direction: column;
+}
+
+.address-article>* {
+    text-align: center;
+}
+
+.fa-location-dot {
+    margin-right: 0 !important;
+}
+
+.hospital-address {
+    font-family: var(--basic-font);
+}
+
+
+@media screen and (max-width:600px) {
+    #address-section {
+        flex: 0;
+        display: none;
+    }
+}

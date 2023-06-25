@@ -1,21 +1,25 @@
-.flexbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #banner-section {
-    /* height: 15rem; */
-    border: 1px solid;
     padding: 2rem 5rem;
     box-sizing: border-box;
+    /* background-color: #DFEEEA; */
 }
 
 .banner-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-
-    /* border: 1px solid; */
+    display: flex;
     box-sizing: border-box;
+}
+
+.banner-wrapper>* {
+    flex: 1;
+}
+
+@media screen and (max-width:600px) {
+    #banner-section {
+        padding: 1.5rem 1rem;
+        display: none;
+    }
+
+    .banner-wrapper {
+        flex-direction: column;
+    }
 }

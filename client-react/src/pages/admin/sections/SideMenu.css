@@ -32,7 +32,7 @@
     padding: 1rem;
     font-size: 1rem;
     border-radius: .5rem;
-
+    font-family: 'Noto Sans', sans-serif;
     border: none;
     background-color: aliceblue;
 }
@@ -47,4 +47,75 @@
 .btn-active {
     color: azure;
     background-color: rgb(34, 45, 54);
+}
+
+.menu-open-btn {
+    width: fit-content !important;
+    display: none;
+    /* width: 1rem !important; */
+    position: absolute;
+    background-color: rgb(181, 194, 206);
+    padding: .5rem;
+    left: 16rem;
+    top: .6rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: .5rem;
+    transition: 1s;
+}
+
+.menu-close-btn {
+    width: fit-content !important;
+    display: none;
+    position: absolute;
+    background-color: rgb(181, 194, 206);
+    padding: .5rem;
+    left: 1rem;
+    top: .6rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: .5rem;
+}
+
+.menu-open-btn-deactive {
+    display: none !important;
+}
+
+.menu-close-btn-deactive {
+    display: none !important;
+}
+
+
+@media screen and (max-width : 600px) {
+    #side-menu {
+        padding: 2rem;
+        padding-top: 4.2rem;
+        padding-bottom: 2.2rem;
+        position: absolute;
+        left: -15.5rem;
+        transition: 1s;
+        height: fit-content;
+        font-size: .9rem;
+    }
+
+    .side-menu-active {
+        transition: 1s;
+        position: absolute !important;
+        left: 0 !important;
+    }
+
+    .application-btn {
+        width: 100%;
+        font-size: .9rem;
+    }
+
+    .menu-open-btn {
+        display: block;
+    }
+
+    .menu-close-btn {
+        display: block;
+        transition: 1s;
+        left: 12rem;
+    }
 }

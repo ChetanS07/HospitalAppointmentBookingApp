@@ -1,9 +1,107 @@
 .get-slot-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    padding: 2rem;
-    /* width: 50%; */
+    row-gap: 2.5rem;
+    padding: 2rem 0rem;
+    width: 85%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-sizing: border-box;
+    font-family: var(--article-font);
+    background-color: #060047;
+}
 
-    border: 2px solid;
+.get-slot-form>* {
+    /* border: 1px solid; */
+    /* text-align: center; */
+    justify-self: center !important;
+}
+
+.get-slot-form label {
+    margin-right: 1rem;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+    color: aliceblue;
+}
+
+#date {
+    padding: .5rem 2rem;
+    font-size: 1rem;
+    border: none;
+    font-family: var(--basic-font);
+}
+
+.doctor-wrapper {
+    justify-self: end;
+}
+
+#doctor {
+    padding: .5rem 2rem;
+    font-size: 1rem;
+    border: none;
+    font-family: var(--basic-font);
+    background-color: white;
+}
+
+.get-slots-btn {
+    grid-column-start: 2;
+    padding: .8rem 2rem;
+    width: fit-content;
+    font-size: 1.2rem;
+    /* justify-self: end; */
+    border: none;
+    border-radius: .5rem;
+    background-color: rgb(94, 92, 89);
+    color: aliceblue;
+    font-family: var(--article-font);
+}
+
+
+@media screen and (max-width:600px) {
+
+    .get-slot-form {
+        row-gap: 2rem;
+        padding: 1.5rem 1rem;
+        width: 100%;
+        column-gap: 1rem;
+    }
+
+    .get-slot-form>* {
+        /* border: 1px solid; */
+        /* text-align: center; */
+        justify-self: center !important;
+    }
+
+    .get-slot-form label {
+        margin-right: 1rem;
+        font-size: .9rem !important;
+        margin-bottom: .2rem;
+    }
+
+    #date {
+        padding: .2rem .5rem !important;
+        font-size: .9rem;
+        border: none;
+        font-family: var(--basic-font);
+
+
+    }
+
+    .doctor-wrapper {
+        justify-self: end;
+    }
+
+    #doctor {
+        padding: .2rem .4rem;
+        font-size: .9rem;
+        border: none;
+        font-family: var(--basic-font);
+
+    }
+
+    .get-slots-btn {
+        padding: .5rem .8rem;
+        font-size: .95rem;
+    }
 }

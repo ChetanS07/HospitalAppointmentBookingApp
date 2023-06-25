@@ -1,26 +1,47 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
+// import axios from 'axios'
 import { useDispatch } from 'react-redux';
+import { message } from "antd";
 
 //css
 import './index.css'
 
 //modules
 import { validateString } from '../../utils/validaters';
+import axios from '../../utils/axios';
+
 
 //components
 import Navbar from '../../components/header/Navbar'
-
+import Copyright from '../../components/footer/Copyright'
 
 function App() {
-
+    const [messageApi, contextHolder] = message.useMessage();
     const dispatch = useDispatch()
 
     const navigate = useNavigate()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [formvalid, setFormValid] = useState(false)
+
+    const showModalAndNavigate = (type, msg, duration = 2.0) => {
+        messageApi.open({
+            type: type,
+            content: msg,
+            duration: duration
+        }).then(() => {
+            navigate('/admin/dashboard', { replace: true })
+        })
+    };
+
+    const showModal = (type, msg, duration = 2.0) => {
+        messageApi.open({
+            type: type,
+            content: msg,
+            duration: duration
+        })
+    };
 
     const usernameHandler = (e) => {
         setUsername(e.target.value)
@@ -40,11 +61,8 @@ function App() {
         try {
             if (formvalid) {
                 const response = await axios({
-                    headers: {
-                        "Content-Type": 'application/json'
-                    },
                     method: 'POST',
-                    url: 'http://localhost:8000/usr/login',
+                    url: 'usr/login',
                     data: {
                         userId: username,
                         password: password
@@ -56,23 +74,26 @@ function App() {
                     const token = response.data.userToken
                     localStorage.setItem("userToken", token);
                     dispatch({ type: 'LOGIN' })
-                    navigate('/admin/dashboard', { replace: true })
-                    //send jwt token to backend and redirect to /admin
+                    showModalAndNavigate('success', 'Loggin In...', 1)
+                } else {
+                    showModal('error', 'Failed to Login, Either User Doesnt Exist or Credentials Incorrect')
                 }
             } else {
-                alert('Enter Details correctly')
+                showModal('warning', 'Fill all Credentials')
             }
         } catch (error) {
-            alert('error occured')
+            showModal('error', 'Failed to Login, Server Error. Try Again Later')
         }
     }
 
     return (
         <>
+            {contextHolder}
             <Navbar />
             <section id='login-section'>
                 <form className='login-form'>
                     <input
+                        className='login-input'
                         type="text"
                         name="username"
                         placeholder='Enter Username'
@@ -80,15 +101,21 @@ function App() {
                         onBlur={checkValidity}
                     />
                     <input
-                        type="text"
+                        className='login-input'
+                        type="password"
                         name="password"
                         placeholder='Enter Your Password'
                         onChange={passwordHandler}
                         onBlur={checkValidity}
                     />
-                    <button onClick={login}>Login</button>
+                    <button
+                        className='login-btn'
+                        onClick={login}
+                    >Login
+                    </button>
                 </form>
             </section>
+            <Copyright />
         </>
 
     );

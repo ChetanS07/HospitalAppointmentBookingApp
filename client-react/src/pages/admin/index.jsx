@@ -2,32 +2,129 @@ import React, { useEffect, useState, useRef } from 'react';
 import { decodeToken, isExpired } from 'react-jwt'
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios'
+// import axios from 'axios'
 
 //css
 import './index.css'
 import '../../main.css'
 
+//modules
+import { today } from '../../config/data';
+import axios from '../../utils/axios';
+
 //components
 import Navbar from '../../components/header/Navbar'
-import StatusBoard from './sections/StatusBoard'
 import SideMenu from './sections/SideMenu'
-import ApplicationsContainer from './components/ApplicationsContainer';
+import ApplicationsContainer from './sections/ApplicationsContainer';
+
+const PENDING = 'pending'
+const APPROVED = 'approved'
+const TODAY = today
+const ALL = 'all'
+
+
+// const appointments = [
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'approved'
+//     },
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan1',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'pending'
+//     },
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan2',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'pending'
+//     },
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan1',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'pending'
+//     },
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan1',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'pending'
+//     },
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan1',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'pending'
+//     },
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan1',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'pending'
+//     },
+
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan1',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'pending'
+//     },
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan1',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'pending'
+//     },
+//     {
+//         _id: '6493e2e93643326dd9d53c66',
+//         name: 'chetan1',
+//         phone: '1234567890',
+//         date: '2023-06-30',
+//         slot: 'slot1',
+//         doctor: 'deepak',
+//         status: 'pending'
+//     },
+// ]
 
 function App() {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const isAuth = useSelector(state => state.isAuth)
-
-    const todayButton = useRef(null)
-    const pendingButton = useRef(null)
-    const approveButton = useRef(null)
-
+    const inAdmin = useSelector(state => state.inAdmin)
     const [appointments, setAppointments] = useState([])
-    const [showToday, setShowToday] = useState(true)
-    const [showPending, setShowPending] = useState(false)
-    const [showApproved, setShowApproved] = useState(false)
+    const [show, setShow] = useState(TODAY)
 
     useEffect(() => {
         const token = localStorage.getItem('userToken')
@@ -38,25 +135,35 @@ function App() {
                 dispatch({ type: 'UNAUTHORIZED' })
                 navigate('/login', { replace: true })
             } else {
-                dispatch({ type: 'LOGIN', user: user.userToken })
+                dispatch({ type: 'IN_ADMIN_PAGE', user: user.userToken })
+                getShows()
                 getAppointments()
             }
         } else {
             dispatch({ type: 'UNAUTHORIZED' })
             navigate('/login', { replace: true })
         }
-    }, [])
+    }, [show])
+
+    console.log('IN ADMIN : ', inAdmin);
+
+    const getShows = () => {
+        const shows = localStorage.getItem('shows')
+        if (shows) {
+            // console.log('shows : ', shows);
+            setShow(shows)
+        }
+    }
 
     const getAppointments = async () => {
         const token = localStorage.getItem('userToken')
         try {
             const req = await axios({
                 headers: {
-                    "Content-Type": 'application/json',
                     'x-access-token': token
                 },
                 method: 'get',
-                url: 'http://localhost:8000/db/getAppointments'
+                url: 'db/getAppointments'
             })
             setAppointments(prevData => (req.data.patients))
         } catch (error) {
@@ -65,42 +172,30 @@ function App() {
     }
 
     const showTodayHandler = () => {
-        setShowToday(true)
-        setShowApproved(false)
-        setShowPending(false)
-        todayButton.current.classList.add('btn-active')
-        pendingButton.current.classList.remove('btn-active')
-        approveButton.current.classList.remove('btn-active')
+        setShow(TODAY)
     }
 
     const showPendingHandler = () => {
-        setShowToday(false)
-        setShowApproved(false)
-        setShowPending(true)
-        todayButton.current.classList.remove('btn-active')
-        pendingButton.current.classList.add('btn-active')
-        approveButton.current.classList.remove('btn-active')
+        setShow(PENDING)
     }
 
     const showApprovedHandler = () => {
-        setShowToday(false)
-        setShowApproved(true)
-        setShowPending(false)
-        todayButton.current.classList.remove('btn-active')
-        pendingButton.current.classList.remove('btn-active')
-        approveButton.current.classList.add('btn-active')
+        setShow(APPROVED)
+    }
+
+    const showAllHandler = () => {
+        setShow(ALL)
     }
 
     return (
         <div id='admin-dashboard'>
             <Navbar />
             <section className='flexbox'>
-                <SideMenu showToday={showTodayHandler} showApproved={showApprovedHandler} showPending={showPendingHandler} todayButton={todayButton} pendingButton={pendingButton} approveButton={approveButton} />
+                <SideMenu show={show} showToday={showTodayHandler} showAll={showAllHandler} showApproved={showApprovedHandler} showPending={showPendingHandler} />
                 <div className='dashboard-section'>
-                    <StatusBoard patients={appointments} />
                     {appointments.length > 0
-                        ? <ApplicationsContainer patients={appointments} showToday={showToday} showPending={showPending} showApproved={showApproved} />
-                        : <ApplicationsContainer patients={[]} />
+                        ? <ApplicationsContainer patients={appointments} show={show} />
+                        : <h1>No Applications</h1>
                     }
                 </div>
             </section >

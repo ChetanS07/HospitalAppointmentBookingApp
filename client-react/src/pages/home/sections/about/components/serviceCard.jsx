@@ -6,7 +6,7 @@ function App(props) {
     return (
         <div className='service-card flexbox'>
             <i className={props.iconClass}></i>
-            {props.service}
+            <p>{props.service}</p>
         </div >
     );
 }

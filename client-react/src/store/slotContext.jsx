@@ -10,7 +10,7 @@ const SlotContextProvider = ({ children }) => {
     const [date, setDate] = useState(currentDate)
     const [doctor, setDoctor] = useState('')
     const [slots, setSlots] = useState({})
-    const [slotsAvailable, setSlotsAvailable] = useState(false)
+    const [slotsAvailable, setSlotsAvailable] = useState(false)//change it to false after editing
 
     const contextValue = {
         date, doctor, slots, slotsAvailable, setDate, setDoctor, setSlots, setSlotsAvailable

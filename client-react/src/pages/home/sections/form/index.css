@@ -1,8 +1,43 @@
+#form-contact-section {
+    padding: 3rem 6rem;
+    display: flex;
+    /* border: 1px solid; */
+}
+
 #form-section {
-    padding: 2rem 5rem;
+    flex: 55%;
+    padding: 1rem 0rem;
+    padding-left: 5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
-    /* gap: 2rem; */
+    gap: 1rem;
+    box-sizing: border-box;
+    /* border: 1px solid; */
+}
+
+.book-app-heading {
+    display: none;
+}
+
+@media screen and (max-width:600px) {
+    #form-contact-section {
+        padding: 1rem 1rem 3rem;
+    }
+
+    #form-section {
+        flex: 100%;
+        padding: 0rem 0rem;
+        gap: 1rem;
+    }
+
+    .book-app-heading {
+        display: block;
+        margin: 0;
+        padding: 0;
+        font-size: 1.2rem;
+        text-align: center;
+        font-family: var(--Secondary-font);
+    }
 }

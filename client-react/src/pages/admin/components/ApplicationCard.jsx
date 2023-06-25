@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
+import { message } from "antd";
 
 //css
 import './ApplicationCard.css'
@@ -8,79 +9,112 @@ import './ApplicationCard.css'
 //modules
 import { getToken } from '../../../utils/jwt';
 import { slots } from '../../../config/data'
+import { getIndianDate } from '../../../utils/helpers';
+import axios from '../../../utils/axios'
 
 function App(props) {
 
+    const [messageApi, contextHolder] = message.useMessage();
     const navigate = useNavigate()
+    const [render, setRender] = useState(false)
+    const showModal = (type, msg, duration) => {
 
-    //test functions
+        messageApi.open({
+            type: type,
+            content: msg,
+            duration: duration
+        })
+            .then(() => {
+                navigate(0)
+            })
+    };
 
     const applicationApproveHandler = async () => {
         const token = getToken()
+        let msg = ''
+        let type = ''
+
         if (token) {
             try {
                 const approvedPatient = await axios({
                     headers: {
-                        'content-Type': 'application/json',
                         'x-access-token': token
                     },
                     method: 'POST',
-                    url: 'http://localhost:8000/db/approveAppointment',
+                    url: 'db/approveAppointment',
                     data: {
                         patientId: props.patientId
                     }
                 })
-                console.log(approvedPatient.data);
+                // console.log(approvedPatient.data);
+                type = 'success'
+                msg = 'Application Approved'
             } catch (error) {
-                alert('error')
+                type = 'error'
+                msg = 'Application Approve Failed'
             }
         } else {
-            console.log('Failed to get userToken.');
+            alert('You\'re not Authorized');
             navigate('/login', { replace: true })
         }
-        navigate(0)
+        showModal(type, msg, 1);
     }
 
     const applicationDeleteHandler = async () => {
         const token = getToken()
-        console.log(token);
+        let type = ''
+        let msg = ''
         if (token) {
             try {
                 const deletedPatient = await axios({
                     headers: {
-                        "Content-Type": 'application/json',
                         'x-access-token': token
                     },
                     method: 'POST',
-                    url: 'http://localhost:8000/db/deleteAppointment',
+                    url: 'db/deleteAppointment',
                     data: {
                         patientId: props.patientId
                     }
                 })
-                console.log(deletedPatient.data);
+                // console.log(deletedPatient.data);
+                //handle using if and else
+                type = 'success'
+                msg = 'Deleted Application Successfully'
             } catch (error) {
-                console.log('Error Occured while deleting application');
-                alert('error')
+                // console.log('Error Occured while deleting application');
+                type = 'error'
+                msg = 'Deleting Application Failed'
             }
         } else {
-            console.log('Failed to get userToken.');
+            // console.log('Failed to get userToken.');
+            alert('You\'re not Authorized')
             navigate('/login', { replace: true })
         }
-        navigate(0)
+        showModal(type, msg, 1)
     }
 
     return (
         <div id='application-card'>
-            <div className='application-name'><i className="fa-regular fa-user"></i>{props.name}</div>
-            <div className='application-phone'><i className="fa-solid fa-phone"></i>{props.phone}</div>
-            <div className='application-slot'>{slots[props.slot]}</div>
+            {contextHolder}
+            <div className='application-name'>
+                <i className="fa-regular fa-user"></i>
+                {props.name}
+            </div>
+            <div className='application-phone'>
+                <i className="fa-solid fa-phone"></i>
+                {props.phone}
+            </div>
+            <div className='application-date'>
+                <i className="fa-regular fa-calendar date-icon"></i>
+                {getIndianDate(props.date) + '  : ' + slots[props.slot]}
+            </div>
             {
                 props.status === 'pending' ?
-                    <div className='application-status'><span>Appointment Pending</span>
+                    <div className='application-status'><span>Pending</span>
                         <button
                             onClick={applicationApproveHandler}
                         >
-                            approve
+                            Approve
                         </button>
                     </div>
                     : <div className='application-status'>
@@ -89,7 +123,7 @@ function App(props) {
             }
             <div className='application-delete'>
                 <button onClick={applicationDeleteHandler}>
-                    <i className="fa-solid fa-trash fa-xl"></i>
+                    <i className="fa-solid fa-trash fa-lg"></i>
                 </button>
             </div>
         </div>

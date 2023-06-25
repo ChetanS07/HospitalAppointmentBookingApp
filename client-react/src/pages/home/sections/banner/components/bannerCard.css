@@ -5,15 +5,48 @@
     gap: 1rem;
     box-sizing: border-box;
     padding: 1rem;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
+    /* background-color: antiquewhite; */
+    height: 10rem;
+
+    /* background-color: #0E2954; */
 }
 
 .banner-card h2 {
     margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--tertiary-font);
 }
 
 .banner-card p {
-    /* padding: 1rem; */
     margin: 0;
+    font-family: var(--basic-font);
+    letter-spacing: 1px;
+}
 
+@media screen and (max-width:600px) {
+    .banner-card {
+        padding: .5rem !important;
+        align-items: center;
+        gap: .5rem;
+        padding: .8rem;
+        height: auto;
+
+        /* display: none; */
+    }
+
+    .banner-card h2 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: var(--tertiary-font);
+    }
+
+    .banner-card p {
+        font-size: .9rem;
+        letter-spacing: .5px;
+        text-align: center;
+        line-height: 1rem;
+    }
 }

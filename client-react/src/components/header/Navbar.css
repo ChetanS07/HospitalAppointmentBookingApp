@@ -7,16 +7,21 @@
 #navbar {
     box-sizing: border-box;
     height: 6rem;
-    background-color: black;
+    /* background-color: black; */
+    background-color: var(--nav-foo-color);
     justify-content: space-between;
-    padding-right: 5rem;
-    padding-left: 5rem;
+    padding-right: 6rem;
+    padding-left: 7rem;
+    /* overflow-x: hidden; */
 }
 
 .logo {
     font-size: 2rem;
     color: aliceblue;
     text-decoration: none;
+    font-family: var(--primary-font);
+    font-weight: 700;
+
 }
 
 .nav-items-wrapper {
@@ -32,6 +37,8 @@
     padding: .5rem .8rem;
     border-radius: .3rem;
     border: 1px solid black;
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.2rem;
 }
 
 .nav-item a:hover {
@@ -55,4 +62,87 @@
     justify-content: space-between;
     padding-right: 5rem;
     padding-left: 5rem;
+}
+
+.nav-close-btn {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    padding: .3rem;
+    border: none;
+    z-index: 25;
+}
+
+.nav-open-btn {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    padding: .3rem;
+    border: none;
+    z-index: 25;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    #navbar {
+        height: 3.5rem;
+        padding: 0 1rem;
+        justify-content: unset;
+    }
+
+    .navbar-small {
+        height: 3.5rem !important;
+        padding: 0 1rem;
+        justify-content: unset;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        margin: 0;
+        position: absolute;
+        z-index: 35;
+    }
+
+    .nav-items-wrapper {
+        position: absolute;
+        width: 100%;
+        z-index: 10;
+        top: -10rem;
+        right: 0;
+        /* right: -26rem; */
+        height: 10rem !important;
+        flex-direction: column;
+        background-color: black;
+        transition: 1s;
+    }
+
+    .nav-items-wrapper-active {
+        display: block;
+        transition: 1s;
+        top: 2.5rem;
+        right: 0;
+    }
+
+    .nav-close-btn {
+        display: none;
+        color: aliceblue;
+        right: 1rem;
+        top: .9rem;
+    }
+
+    .nav-close-btn-active {
+        display: block;
+    }
+
+    .nav-open-btn {
+        display: block;
+        color: aliceblue;
+        right: 1rem;
+        top: .9rem;
+    }
+
+    .nav-open-btn-deactive {
+        display: none;
+    }
 }

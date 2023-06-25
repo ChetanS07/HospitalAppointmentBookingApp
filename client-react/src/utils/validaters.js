@@ -26,16 +26,12 @@ export const calculateDay = (date) => {
         switch (true) {
             case dateRecieved > currentDate:
                 return 'future'
-                break;
             case dateRecieved < currentDate:
                 return 'past'
-                break;
             case date === today:
                 return 'today'
-                break;
             default:
                 return undefined
-                break;
         }
     }
 }

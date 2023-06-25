@@ -1,0 +1,25 @@
+#copyright-section {
+    width: 100%;
+    background-color: var(--nav-foo-color);
+    color: aliceblue;
+    text-align: center;
+    padding: .5rem 5rem;
+    box-sizing: border-box;
+    font-family: var(--basic-font);
+    font-size: .9rem;
+}
+
+.copyright-content {
+    margin: 0;
+}
+
+.copyright-content i {
+    margin-right: 1rem;
+}
+
+@media screen and (max-width : 600px) {
+    #copyright-section {
+        font-size: .8rem;
+        padding: .3rem;
+    }
+}

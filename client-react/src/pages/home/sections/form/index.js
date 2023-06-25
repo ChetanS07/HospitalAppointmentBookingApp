@@ -8,6 +8,7 @@ import './index.css'
 import { SlotContextProvider } from '../../../../store/slotContext';
 import SlotForm from './components/slotForm'
 import RequestForm from './components/requestForm'
+import AddressSection from './components/AddressComponent'
 
 const day = new Date();
 day.setDate(day.getDate() + 1);
@@ -17,10 +18,14 @@ function App() {
 
     return (
         <SlotContextProvider>
-            <section id='form-section'>
-                <SlotForm currentDate={currentDate} />
-                <RequestForm />
-            </section >
+            <div id='form-contact-section'>
+                <AddressSection />
+                <section id='form-section'>
+                    <h2 className='book-app-heading'>Book Your Appointment</h2>
+                    <SlotForm currentDate={currentDate} />
+                    <RequestForm />
+                </section >
+            </div>
         </SlotContextProvider>
     );
 }

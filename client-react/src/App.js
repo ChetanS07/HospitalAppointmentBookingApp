@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 
 //components
 import HomePage from './pages/home/index'
-import AboutPage from "./pages/about/index"
 import LoginPage from './pages/login/index'
 import AdminPage from './pages/admin/index'
 
@@ -17,7 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path='/about' element={<AboutPage />} />
+          <Route pathe='' />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/admin/dashboard' element={<AdminPage />} />
           {/* <Route path='*' element={<HomePage />} /> */}

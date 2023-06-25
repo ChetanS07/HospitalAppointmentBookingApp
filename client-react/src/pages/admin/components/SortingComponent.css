@@ -1,0 +1,55 @@
+.sorting-options-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 4rem;
+    /* border: 1px solid; */
+    padding: 1.5rem 3rem 1rem;
+    gap: 1rem;
+    /* font-size: 1.1re; */
+    /* border-top-right-radius: .5rem; */
+    /* border-top-left-radius: .5rem; */
+
+    border-bottom: 1px solid grey;
+
+    box-sizing: border-box;
+    background-color: aliceblue;
+    font-family: 'Belanosima', sans-serif;
+}
+
+@media screen and (max-width:600px) {
+
+    .sorting-options-wrapper {
+        height: auto;
+        align-items: center;
+        justify-content: unset;
+        gap: .5rem;
+        padding: .5rem 0;
+        /* width: 100%; */
+        /* justify-content: unset; */
+        flex-direction: column;
+        /* border: 1px solid; */
+
+        /* font-size: .5rem; */
+    }
+
+    .sorting-options-wrapper div label {
+        font-size: .9rem;
+    }
+
+    #doctor-option {
+        padding: .2rem .4rem;
+        font-size: .8rem;
+    }
+
+    #day-option {
+        padding: .2rem .4rem;
+        font-size: .8rem;
+    }
+
+    #date-input {
+        padding: .2rem .2rem;
+        font-size: .8rem;
+    }
+
+}
