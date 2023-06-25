@@ -166,7 +166,7 @@ function App(props) {
                         onChange={slotChangeHanlder}
                         onBlur={validateSlotHandler}
                     >
-                        <option value={slotState.value} disabled hidden>Select Slot</option>
+                        <option value={'default'} disabled hidden>Select Slot</option>
                         <>{renderSlots()}</>
                     </select>
                 </div>
