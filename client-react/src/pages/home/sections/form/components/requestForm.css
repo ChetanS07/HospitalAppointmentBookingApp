@@ -72,7 +72,7 @@
     .request-appointment-form {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.3rem;
         padding: 1.5rem 1rem;
         width: 100%;
     }
@@ -107,7 +107,7 @@
     }
 
     #slots {
-        padding: .2rem .5rem;
+        padding: .25rem .6rem;
         font-size: .9rem;
         /* border-radius: .5rem; */
         /* border: 1px solid; */
