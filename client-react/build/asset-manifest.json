@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.20a68539.css",
+    "main.js": "/static/js/main.6c1f18fd.js",
+    "static/media/hospitalBuilding.jpg": "/static/media/hospitalBuilding.6ff649ffa39a756b95ea.jpg",
+    "static/media/hospital.jpg": "/static/media/hospital.8e5a9f29b48a9d3013d9.jpg",
+    "static/media/doctor1.jpg": "/static/media/doctor1.fee51362cddb1fb5e71f.jpg",
+    "static/media/doctor2.jpg": "/static/media/doctor2.fc25408d077116a9c24f.jpg",
+    "static/media/hospital-resized.jpg": "/static/media/hospital-resized.38718000323a55719ddb.jpg",
+    "index.html": "/index.html",
+    "main.20a68539.css.map": "/static/css/main.20a68539.css.map",
+    "main.6c1f18fd.js.map": "/static/js/main.6c1f18fd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.20a68539.css",
+    "static/js/main.6c1f18fd.js"
+  ]
+}
