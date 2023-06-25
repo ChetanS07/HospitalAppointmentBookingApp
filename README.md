@@ -12,6 +12,7 @@ This is a web application designed to streamline the appointment booking process
 - Filter applications based on date, upcoming, past, or today's appointments
 - Sort appointments by available doctors
 - Search functionality for quick access to specific appointments
+- The Time slots are of 2 hours each (10-12,12-2,4-6,6-8) and each slots can have only 8 appointments, if there are already 8, then that slot will be disabled for next patien.
 
 ## Technologies Used
 
