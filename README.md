@@ -27,7 +27,7 @@ This is a web application designed to streamline the appointment booking process
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: 
+1. Clone the repository: 'https://github.com/ChetanS07/HospitalAppointmentBookingApp.git'
 2. Navigate to the project directory: 'cd HospitalApponitmentBOokingApp'
 
 **For FrontEnd**
