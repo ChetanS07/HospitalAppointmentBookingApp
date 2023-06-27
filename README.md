@@ -48,7 +48,7 @@ To run the project locally, follow these steps:
 
 **Do Check out the hosted website of this repo at :**
 
-https://chetansprojectshospitalappbooking.netlify.app/
+https://csprojectshospitalappbooking.netlify.app/
 
 And Login Details are :
 
