@@ -27,30 +27,33 @@ This is a web application designed to streamline the appointment booking process
 
 To run the project locally, follow these steps:
 
-1. Clone the repository:  `git clone https://github.com/ChetanS07/HospitalAppointmentBookingApp.git`
-2. Navigate to the project directory:  `cd HospitalApponitmentBOokingApp`
+1. Clone the repository:
+   ```git clone https://github.com/ChetanS07/HospitalAppointmentBookingApp.git```
+3. Navigate to the project directory:
+   ```cd HospitalApponitmentBOokingApp```
 
 **For FrontEnd**
-1. Navigate to client-react directory : `cd client-react`
-2. Install the dependencies:  `npm install`
-3. Start server by running:  `npm start`
+1. Navigate to client-react directory : ```cd client-react```
+2. Install the dependencies:  ```npm install```
+3. Start server by running:  ```npm start```
 
 **For BackEnd**
-1. Navigate to client-react directory : `cd server`
-2. Install the dependencies: `npm install`
+1. Navigate to client-react directory : ```cd server```
+2. Install the dependencies: ```npm install```
 3. 5. Configure the database connection in the `.env` file (DB_URL,ORIGIN_URL for cors,PORT,JWT_SECRET)
-4. Start server by running:  `npm start`
+4. Start server by running:  ```npm start```
 
-**Open your web browser and access the application at `http://localhost:3000`**
+**Open your web browser and access the application at 
+```http://localhost:3000```**
 
 **Do Check out the hosted website of this repo at :**
 
-https://chetansprojectshospitalappbooking.netlify.app/
+https://csprojectshospitalappbooking.netlify.app/
 
 And Login Details are :
 
-username : `admin user`  
-password : `admin`  
+username : ```admin```  
+password : ```admin```  
 
 **Please Don't Misuse**
 
