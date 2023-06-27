@@ -91,6 +91,7 @@ function App(props) {
                     messageApi.destroy()
                 }
             }).catch((err) => {
+                messageApi.destroy()
                 showModal('error', 'Failed to get Slots. Server Error, Try Again Later')
             })
 
