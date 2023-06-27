@@ -10,7 +10,9 @@ const PORT = process.env.PORT || 8000
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({
-    origin: process.env.ORIGIN_URL, optionsSuccessStatus: 200
+    origin: process.env.ORIGIN_URL,
+    // origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200
 
 }))
 app.use('/', require('./routers/routes.js'))

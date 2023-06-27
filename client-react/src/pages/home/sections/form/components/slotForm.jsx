@@ -50,27 +50,53 @@ function App(props) {
         });
     }
 
+    const showLoading = () => {
+        messageApi.open({
+            type: 'loading',
+            content: 'Getting Slots, This may take few Seconds...',
+            duration: 0
+        })
+    }
+
     const getSlots = async (event) => {
         event.preventDefault();
 
         if (formValid) {
-            try {
-                const request = await axios({
-                    method: 'post',
-                    url: 'db/getSlots',
-                    data: {
-                        date: date,
-                        doctor: doctor
-                    }
-                })
+            // try {
+            // const request = await axios({
+            //     method: 'post',
+            //     url: 'db/getSlots',
+            //     data: {
+            //         date: date,
+            //         doctor: doctor
+            //     }
+            // })
+            // if (request.data.status === 'success') {
+            //     setSlots(request.data.slots)
+            //     setSlotsAvailable(true)
+            // }
+            showLoading()
 
+            axios({
+                method: 'post',
+                url: 'db/getSlots',
+                data: {
+                    date: date,
+                    doctor: doctor
+                }
+            }).then((request) => {
                 if (request.data.status === 'success') {
                     setSlots(request.data.slots)
                     setSlotsAvailable(true)
+                    messageApi.destroy()
                 }
-            } catch (error) {
+            }).catch((err) => {
                 showModal('error', 'Failed to get Slots. Server Error, Try Again Later')
-            }
+            })
+
+            // } catch (error) {
+            // showModal('error', 'Failed to get Slots. Server Error, Try Again Later')
+            // }
         } else {
             showModal('warning', 'Fill all the credentials')
         }
