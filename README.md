@@ -27,8 +27,10 @@ This is a web application designed to streamline the appointment booking process
 
 To run the project locally, follow these steps:
 
-1. Clone the repository:  ```git clone https://github.com/ChetanS07/HospitalAppointmentBookingApp.git```
-2. Navigate to the project directory:  ```cd HospitalApponitmentBOokingApp```
+1. Clone the repository:
+   ```git clone https://github.com/ChetanS07/HospitalAppointmentBookingApp.git```
+3. Navigate to the project directory:
+   ```cd HospitalApponitmentBOokingApp```
 
 **For FrontEnd**
 1. Navigate to client-react directory : ```cd client-react```
@@ -41,7 +43,8 @@ To run the project locally, follow these steps:
 3. 5. Configure the database connection in the `.env` file (DB_URL,ORIGIN_URL for cors,PORT,JWT_SECRET)
 4. Start server by running:  ```npm start```
 
-**Open your web browser and access the application at ```http://localhost:3000```**
+**Open your web browser and access the application at 
+```http://localhost:3000```**
 
 **Do Check out the hosted website of this repo at :**
 
